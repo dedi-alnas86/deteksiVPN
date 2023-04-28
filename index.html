@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Get Location Data</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+	body {
+  background-color: #F5F5F5;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+#header {
+  background-color: #0077B6;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 48px;
+  margin: 0;
+}
+
+h2 {
+  font-size: 24px;
+  margin: 0;
+}
+
+#ip-status {
+  margin-top: 10px;
+}
+
+#location-data {
+  background-color: #FFFFFF;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+  max-width: 600px;
+  margin: 0 auto;
+}
+/* Tambahkan animasi transisi pada header */
+#header {
+  background-color: #0077B6;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+}
+
+#header:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#header:hover:before {
+  opacity: 1;
+}
+
+/* Tambahkan animasi transisi pada lokasi data */
+#location-data {
+  background-color: #FFFFFF;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+}
+
+#location-data:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  z-index: -1;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+#location-data:hover:before {
+  transform: translateY(0%);
+}
+@media screen and (max-width: 600px) {
+			.container {
+				max-width: 100%;
+				padding: 0;
+			}
+
+			.header h1 {
+				font-size: 20px;
+			}
+
+			.header h2 {
+				font-size: 16px;
+			}
+
+			.header::after {
+				width: 30px;
+			}
+
+			.content p {
+				font-size: 16px;
+			}
+
+			.footer::before {
+				width: 30px;
+			}
+		}
+		/* CSS code */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn ease-in 1;
+  animation-fill-mode: forwards;
+  animation-duration: 0.5s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+</style>
+</head>
+<body>
+	<div id="header">
+	<center>
+<div id="aswift_2_host" style="border: none; height: 250px; width: 300px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;" tabindex="0" title="Advertisement" aria-label="Advertisement"><iframe id="aswift_2" name="aswift_2" style="left:0;position:absolute;top:0;border:0;width:300px;height:250px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="300" height="250" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="https://googleads.g.doubleclick.net/pagead/ads?client=ca-google&amp;output=html&amp;h=250&amp;adk=1897245940&amp;adf=1523481722&amp;w=300&amp;lmt=1668939523&amp;format=300x250&amp;url=https%3A%2F%2Fcontoh-bloglagi.blogspot.com%2F&amp;host=ca-host-pub-1556223355139109&amp;wgl=1&amp;uach=WyJXaW5kb3dzIiwiMC4xLjAiLCJ4ODYiLCIiLCIxMDYuMC41MjQ5LjExOSIsW10sZmFsc2UsbnVsbCwiMzIiLFtbIkNocm9taXVtIiwiMTA2LjAuNTI0OS4xMTkiXSxbIkdvb2dsZSBDaHJvbWUiLCIxMDYuMC41MjQ5LjExOSJdLFsiTm90O0E9QnJhbmQiLCI5OS4wLjAuMCJdXSxmYWxzZV0.&amp;dt=1669611445477&amp;bpp=3&amp;bdt=891&amp;idt=318&amp;shv=r20221110&amp;mjsv=m202211100101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;prev_fmts=634x90%2C634x90%2C0x0&amp;nras=1&amp;correlator=6552000100140&amp;frm=20&amp;pv=1&amp;ga_vid=502991502.1659509067&amp;ga_sid=1669611446&amp;ga_hid=1838879268&amp;ga_fc=1&amp;u_tz=-300&amp;u_his=1&amp;u_h=768&amp;u_w=1366&amp;u_ah=738&amp;u_aw=1366&amp;u_cd=24&amp;u_sd=1&amp;dmc=2&amp;adx=186&amp;ady=55&amp;biw=663&amp;bih=667&amp;scr_x=0&amp;scr_y=0&amp;eid=44759875%2C44759926%2C44759837%2C42531706%2C44768832&amp;oid=2&amp;pvsid=1152179006195178&amp;tmod=58311339&amp;uas=0&amp;nvt=2&amp;ref=https%3A%2F%2Fcontoh-bloglagi.blogspot.com%2F&amp;eae=0&amp;fc=896&amp;brdim=0%2C0%2C0%2C0%2C1366%2C0%2C1366%2C738%2C680%2C667&amp;vis=1&amp;rsz=%7C%7CleE%7C&amp;abl=CS&amp;pfx=0&amp;fu=0&amp;bc=31&amp;ifi=3&amp;uci=a!3&amp;fsb=1&amp;xpc=Pdb8esbkWt&amp;p=https%3A//contoh-bloglagi.blogspot.com&amp;dtd=324" data-google-container-id="a!3" data-google-query-id="CPm-9K2L0PsCFW-qSwUdj2YA7w" data-load-complete="true"></iframe></div><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></center>
+		<h1>Data Keamanan Perangkat Anda</h1>	
+		<h2 id="ip-status"></h2>
+	</div>
+	<div id="location-data"></div>
+	<center>
+<div id="aswift_2_host" style="border: none; height: 250px; width: 300px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;" tabindex="0" title="Advertisement" aria-label="Advertisement"><iframe id="aswift_2" name="aswift_2" style="left:0;position:absolute;top:0;border:0;width:300px;height:250px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="300" height="250" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="https://googleads.g.doubleclick.net/pagead/ads?client=ca-google&amp;output=html&amp;h=250&amp;adk=1897245940&amp;adf=1523481722&amp;w=300&amp;lmt=1668939523&amp;format=300x250&amp;url=https%3A%2F%2Fcontoh-bloglagi.blogspot.com%2F&amp;host=ca-host-pub-1556223355139109&amp;wgl=1&amp;uach=WyJXaW5kb3dzIiwiMC4xLjAiLCJ4ODYiLCIiLCIxMDYuMC41MjQ5LjExOSIsW10sZmFsc2UsbnVsbCwiMzIiLFtbIkNocm9taXVtIiwiMTA2LjAuNTI0OS4xMTkiXSxbIkdvb2dsZSBDaHJvbWUiLCIxMDYuMC41MjQ5LjExOSJdLFsiTm90O0E9QnJhbmQiLCI5OS4wLjAuMCJdXSxmYWxzZV0.&amp;dt=1669611445477&amp;bpp=3&amp;bdt=891&amp;idt=318&amp;shv=r20221110&amp;mjsv=m202211100101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;prev_fmts=634x90%2C634x90%2C0x0&amp;nras=1&amp;correlator=6552000100140&amp;frm=20&amp;pv=1&amp;ga_vid=502991502.1659509067&amp;ga_sid=1669611446&amp;ga_hid=1838879268&amp;ga_fc=1&amp;u_tz=-300&amp;u_his=1&amp;u_h=768&amp;u_w=1366&amp;u_ah=738&amp;u_aw=1366&amp;u_cd=24&amp;u_sd=1&amp;dmc=2&amp;adx=186&amp;ady=55&amp;biw=663&amp;bih=667&amp;scr_x=0&amp;scr_y=0&amp;eid=44759875%2C44759926%2C44759837%2C42531706%2C44768832&amp;oid=2&amp;pvsid=1152179006195178&amp;tmod=58311339&amp;uas=0&amp;nvt=2&amp;ref=https%3A%2F%2Fcontoh-bloglagi.blogspot.com%2F&amp;eae=0&amp;fc=896&amp;brdim=0%2C0%2C0%2C0%2C1366%2C0%2C1366%2C738%2C680%2C667&amp;vis=1&amp;rsz=%7C%7CleE%7C&amp;abl=CS&amp;pfx=0&amp;fu=0&amp;bc=31&amp;ifi=3&amp;uci=a!3&amp;fsb=1&amp;xpc=Pdb8esbkWt&amp;p=https%3A//contoh-bloglagi.blogspot.com&amp;dtd=324" data-google-container-id="a!3" data-google-query-id="CPm-9K2L0PsCFW-qSwUdj2YA7w" data-load-complete="true"></iframe></div><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></center>
+	<script>
+	(async () => {
+		try {
+			const response = await fetch('https://api.ipregistry.co/?key=tryout&fields=location.country.code,location.country.name');
+			const data = await response.json();
+			const ipLocationCountryCode = data.location.country.code;
+			const locationData = document.getElementById('location-data');
+			const output = {
+				"good_ip": false,
+				"bad_ip": false
+			};
+			if ('geolocation' in navigator) {
+			  navigator.geolocation.getCurrentPosition(async position => {
+			    const { latitude, longitude } = position.coords;
+			    const response = await fetch(`https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`);
+			    const data = await response.json();
+			    const geolocationCountryCode = data.address.country_code.toLowerCase();
+			    const ipLocationCountryCodeLowerCase = ipLocationCountryCode.toLowerCase();
+			    if (ipLocationCountryCodeLowerCase === geolocationCountryCode) {
+			    	output.good_ip = true;
+			    } else {
+			    	output.bad_ip = true;
+			    }
+			    const ipStatus = document.getElementById('ip-status');
+if (output.good_ip) {
+  ipStatus.innerHTML = '<span class="fade-in">Hasil: Real IP Akses Anda Langsung</span>';
+} else {
+  ipStatus.innerHTML = '<span class="fade-in">Hasil: Bahaya Anda Pengguna VPN/Proxy</span>';
+}
+			    //locationData.textContent = JSON.stringify(output, null, 2);
+			  }, error => {
+			    console.error(error);
+			    const locationData = document.getElementById('location-data');
+			    locationData.textContent = 'Waktu percobaan untuk IP koneksi Anda habis.';
+			  });
+			} else {
+			  console.error('Lokasi tidak tersedia di browser anda');
+			  const locationData = document.getElementById('location-data');
+			  locationData.textContent += '\nLokasi tidak tersedia di browser anda';
+			}
+		 } catch (error) {
+			console.error(error);
+			const locationData = document.getElementById('location-data');
+			locationData.textContent = 'Waktu percobaan untuk IP koneksi Anda habis.';
+		 }
+	})();
+	</script>
+</body>
+</html>
